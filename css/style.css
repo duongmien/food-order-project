@@ -1,9 +1,8 @@
-/* 
-    Author: Vijay Thapa;
-    Theme: Restaurant Food Order;
-    version: 1.0;
-*/
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+:root{
+    --cursive-font: 'Dancing Script', cursive;
+    scroll-behavior: smooth;
+}
 /* CSS for All */
 *{
     margin: 0 0;
@@ -108,15 +107,86 @@ fieldset{
 
 
 /* CSS for Food SEarch Section */
-
 .food-search{
-    background-image: url(../images/bg.jpg);
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+}
+.food-search h1{
+    font-family:  var(--cursive-font);
+    font-size: 60px;
+    line-height: 75px;
+    margin: 0 0 5px;
+    font-weight: 700;
+    color: white;
+    padding-bottom: 30px;
+}
+.food-search::before{
+    /* background-image: url(../images/home-bg.jpg);
+    background-size: cover;
+    animation: zoomInout 20s ease infinite;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 7% 0;
+    padding: 7% 0; */
+    content: '';
+    position: absolute;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.7;
+    z-index: -1;
 }
-
+.food-search .home-bg::after{
+    content: "";
+    position: absolute;
+    top:0;
+    height: 100%;
+    left: 0;
+    right:0;
+    z-index:-2;
+    background-image: url(../images/home-bg.jpg);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      animation: zoomInout 20s ease infinite;
+}
+.food-search .bg-food::after{
+    content: "";
+    position: absolute;
+    top:0;
+    height: 100%;
+    left: 0;
+    right:0;
+    z-index:-2;
+    background-image: url(../images/bg-food.jpeg);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: fit;
+      animation: zoomInout 20s ease infinite;
+}
+.food-search .bg-order::after{
+    content: "";
+   background-color: yellow;
+}
+.food-search .container{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+@keyframes zoomInout {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
 .food-search input[type="search"]{
     width: 50%;
     padding: 1%;
@@ -128,7 +198,7 @@ fieldset{
 
 /* CSS for Categories */
 .categories{
-    padding: 4% 0;
+   padding: 4% 0;
 }
 
 .box-3{
