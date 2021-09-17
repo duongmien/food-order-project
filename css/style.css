@@ -63,12 +63,13 @@ a:hover{
     background-color: #ff4757;
 }
 h2{
-    color: #2f3542;
+    color: #000000;
     font-size: 2rem;
     margin-bottom: 2%;
 }
 h3{
     font-size: 1.5rem;
+    color: white;
 }
 .float-container{
     position: relative;
@@ -112,6 +113,7 @@ fieldset{
     position: relative;
     height: 100vh;
     padding-bottom: 30px;
+    clip-path: ellipse(66% 71% at 56% 28%);
 }
 .food-search h1{
     font-family:  var(--cursive-font);
@@ -129,7 +131,7 @@ fieldset{
     top:0;
     height: 100%;
     width: 100%;
-    background-color: #000000;
+    background-color:#000000;
     opacity: 0.5;
     z-index: -1;
 }
@@ -162,6 +164,22 @@ fieldset{
       -o-background-size: cover;
       background-size: fit;
       animation: zoomInout 20s ease infinite;
+}
+.food-search .bg-food-category::after{
+    content: "";
+    position: absolute;
+    top:0;
+    height: 100%;
+    left: 0;
+    right:0;
+    z-index:-2;
+    background-image: url(../images/bg-food-categories.jfif);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      animation: zoomInout 20s ease infinite;
+     
 }
 .food-order{
     padding: 7% 0;
@@ -211,7 +229,7 @@ fieldset{
 
 /* CSS for Food Menu */
 .food-menu{
-    background-color: #ececec;
+    background-color:white ;
     padding: 4% 0;
 }
 .food-menu-box{
@@ -219,7 +237,7 @@ fieldset{
     margin: 1%;
     padding: 2%;
     float: left;
-    background-color: white;
+    background-color: #ececec;
     border-radius: 15px;
 }
 
