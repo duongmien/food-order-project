@@ -1,3 +1,4 @@
+<?php include('../connect/connectdb.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 

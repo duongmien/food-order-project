@@ -17,6 +17,9 @@ body {
 .tbl-full{
     width: 100%;
 }
+.tbl-30{
+    width: 30%;
+}
 th{
     font-weight: bold;
 }
