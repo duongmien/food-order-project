@@ -1,4 +1,7 @@
 <?php 
+// Start session
+session_start();
+define('SITEURL','http://localhost:82/food-order-project/');
 define('LOCALHOST', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASS', '');

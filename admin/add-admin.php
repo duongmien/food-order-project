@@ -4,6 +4,13 @@
     <br>
     <h1>Add Admin</h1>
     <br><br>
+    <?php
+      if(isset($_SESSION['add']))
+      {
+        echo $_SESSION['add'];
+        unset($_SESSION['add']);
+      }
+    ?>
     <form action="" method="POST">
       <table class="tbl-30">
         <tr>
@@ -39,11 +46,22 @@ if (isset($_POST['submit'])) {
   $password = md5($_POST['password']);
   // 2.SQL Query to save the data into database
   $sql = "INSERT INTO tbl_admin SET
-    full_name='$full_name',
+    fullname='$full_name',
     username='$username',
     password='$password'
   ";
   // 3. Excute Query and Save Data in DataBase
   $res = mysqli_query($conn, $sql) or die(mysqli_connect_error());
+  // 4. Check data iss insert or not?
+  if($res==true){
+    // Create a session variable message
+    $_SESSION['add']="Admin Added Succesfully";
+    header("location:".SITEURL.'admin/manage-admin.php');
+  }
+  else {
+    // Create a session variable message
+    $_SESSION['add']="Failed to Add Admin";
+    header("location:".SITEURL.'admin/manage-admin.php');
+  }
 } 
 ?>
