@@ -14,6 +14,52 @@ body {
     clear: both;
 
 }
+.tbl-full{
+    width: 100%;
+}
+th{
+    font-weight: bold;
+}
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+table tr td{
+    padding: 1%;
+}
+.btn-primary{
+    background-color: #70a1ff;
+    padding: 1%;
+    font-weight: bold;
+    border-radius:  30px;
+    color: white;
+    font-size: 15px;
+}
+.btn-primary:hover{
+    background-color:#686de0 ;
+    border-radius:  30px;   
+}
+.btn-secondary{
+    background-color: #7bed9f;
+    padding: 1%;
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
+}
+.btn-secondary:hover{
+    background-color:#2ed573 ;   
+}
+.btn-danger{
+    background-color: #ff6b81;
+    padding: 1%;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+.btn-danger:hover{
+    background-color:#ff4757 ; 
+}
 /* Css for menu */
 .menu{
     border-bottom: 1px solid black;
