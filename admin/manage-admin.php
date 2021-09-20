@@ -24,7 +24,7 @@
       $res = mysqli_query($conn, $sql);
       if ($res == TRUE) {
         $count = mysqli_num_rows($res); //Get all the row
-        $sn=1; //Create variable and asign value
+        $sn = 1; //Create variable and asign value
         if ($count > 0) {
           while ($row = mysqli_fetch_assoc($res)) {
             $id = $row['id'];
@@ -33,7 +33,7 @@
             // Display the value in our Table
       ?>
             <tr>
-              <td><?php echo $sn++. '.' ?></td>
+              <td><?php echo $sn++ . '.' ?></td>
               <td><?php echo $full_name ?></td>
               <td><?php echo $username ?></td>
               <td>
@@ -44,7 +44,6 @@
       <?php
           }
         } else {
-
         }
       }
       ?>

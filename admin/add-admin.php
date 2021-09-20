@@ -5,11 +5,10 @@
     <h1>Add Admin</h1>
     <br><br>
     <?php
-      if(isset($_SESSION['add']))
-      {
-        echo $_SESSION['add'];
-        unset($_SESSION['add']);
-      }
+    if (isset($_SESSION['add'])) {
+      echo $_SESSION['add'];
+      unset($_SESSION['add']);
+    }
     ?>
     <form action="" method="POST">
       <table class="tbl-30">
@@ -53,15 +52,14 @@ if (isset($_POST['submit'])) {
   // 3. Excute Query and Save Data in DataBase
   $res = mysqli_query($conn, $sql) or die(mysqli_connect_error());
   // 4. Check data iss insert or not?
-  if($res==true){
+  if ($res == true) {
     // Create a session variable message
-    $_SESSION['add']="Admin Added Succesfully";
-    header("location:".SITEURL.'admin/manage-admin.php');
-  }
-  else {
+    $_SESSION['add'] = "Admin Added Succesfully";
+    header("location:" . SITEURL . 'admin/manage-admin.php');
+  } else {
     // Create a session variable message
-    $_SESSION['add']="Failed to Add Admin";
-    header("location:".SITEURL.'admin/manage-admin.php');
+    $_SESSION['add'] = "Failed to Add Admin";
+    header("location:" . SITEURL . 'admin/manage-admin.php');
   }
-} 
+}
 ?>
