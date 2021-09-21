@@ -10,7 +10,7 @@
   //Check if the query success
   if($res==True)
   {
-    $_SESSION['delete'] = "Admin Deleted Succesfully";
+    $_SESSION['delete'] = "<div class='text-succes'> Admin Deleted Succesfully </div>";
     header("location:" . SITEURL . 'admin/manage-admin.php');
   }
   else{
@@ -18,3 +18,4 @@
     header("location:" . SITEURL . 'admin/manage-admin.php');
   }
 ?>
+</div>

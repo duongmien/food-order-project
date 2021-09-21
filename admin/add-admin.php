@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
   // 4. Check data iss insert or not?
   if ($res == true) {
     // Create a session variable message
-    $_SESSION['add'] = "Admin Added Succesfully";
+    $_SESSION['add'] = "<div class='text-succes'> Admin Added Succesfully";
     header("location:" . SITEURL . 'admin/manage-admin.php');
   } else {
     // Create a session variable message
