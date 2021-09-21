@@ -49,7 +49,7 @@
   {
    $id=$_POST['id'];
    $full_name=$_POST['full_name'];
-   $username= $php_errormsg['username'];
+   $username= $_POST['username'];
    $sql= "UPDATE tbl_admin SET fullname='$full_name', username='$username' WHERE id=$id ";
    $res=mysqli_query($conn,$sql);
    if($res==True){
