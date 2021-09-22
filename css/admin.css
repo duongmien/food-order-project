@@ -110,15 +110,21 @@ table tr td{
     padding: 10px 0;
 }
 .text-succes{
-    color:blue;
+    color:#20bf6b;
+    font-weight: bold;
+    font-style: italic;
 }
 .text-error{
     color: red;
+    font-weight: bold;
+    font-style: italic;
 }
 /* CSS for Login */
 .login{
     width: 30% ;
     border: 1px solid gray;
+    border-radius: 30px;
     margin: 10% auto;
     padding: 2%;
+    background: #34e7e4;
 }
