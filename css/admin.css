@@ -115,3 +115,10 @@ table tr td{
 .text-error{
     color: red;
 }
+/* CSS for Login */
+.login{
+    width: 30% ;
+    border: 1px solid gray;
+    margin: 10% auto;
+    padding: 2%;
+}
