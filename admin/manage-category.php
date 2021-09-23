@@ -29,11 +29,11 @@
         $sn = 1; //Create variable and asign value
         if ($count > 0) {
           while ($row = mysqli_fetch_assoc($res)) {
-          $id=$row['id'];
-          $title=$row['title'];
-          $image_name= $row['image_name'];
-          $featured= $row['featured'];
-          $active =$row['active'];
+            $id = $row['id'];
+            $title = $row['title'];
+            $image_name = $row['image_name'];
+            $featured = $row['featured'];
+            $active = $row['active'];
             // Display the value in our Table
       ?>
             <tr>
@@ -41,12 +41,14 @@
               <td><?php echo $title ?></td>
 
               <td>
-                <?php 
-                if($image_name!="")
-                {
-                  
-                }
-                else{
+                <?php
+                if ($image_name != "") {
+                  // Display image
+                ?>
+                  <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name ?>" width="100px">
+                <?php
+
+                } else {
                   echo "<div class='text-error'> Image not Added. </div>";
                 }
                 ?>
@@ -68,4 +70,3 @@
   </div>
 </div>
 <?php include('./partials/footer.php') ?>
-      
