@@ -71,6 +71,13 @@
         // Upload the Image
         // To upload the image we need image name, source path and destination_path
         $image_name = $_FILES['image']['name'];
+        //Auto rename
+        //get tje extension of our imager ex png, jpg
+        $ext = explode('.', $image_name);
+        $ext = end($ext);
+        // Rename the Image
+        $image_name ="Food_category_" . rand(000, 999) . '.' . $ext;
+        echo $image_name;
         $source_path = $_FILES['image']['tmp_name'];
         $destination_path = "../images/category/" . $image_name;
         // Upload image
