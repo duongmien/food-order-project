@@ -47,6 +47,12 @@
           </td>
         </tr>
         <tr>
+          <td>New Image: </td>
+          <td>
+            <input type="file" name="image">
+          </td>
+        </tr>
+        <tr>
           <td>Featured: </td>
           <td>
             <input type="radio" name="featured" value="Yes"> Yes
