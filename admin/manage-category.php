@@ -8,6 +8,10 @@
       echo $_SESSION['add'];
       unset($_SESSION['add']);
     }
+    if (isset($_SESSION['delete'])) {
+      echo $_SESSION['delete'];
+      unset($_SESSION['delete']);
+    }
     ?>
     <br> <br>
     <a href="add-category.php" class="btn-primary">Add Category</a>
