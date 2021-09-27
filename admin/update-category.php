@@ -13,9 +13,9 @@
       if ($count == 1) {
         $row = mysqli_fetch_assoc($res);
         $title = $row['title'];
+        $featured = $row['featured'];
         $active = $row['active'];
         $current_image = $row['image_name'];
-        $featured = $row['featured'];
       } else {
         header("location:" . SITEURL . 'admin/manage-category.php');
       }
@@ -55,15 +55,15 @@
         <tr>
           <td>Featured: </td>
           <td>
-            <input type="radio" name="featured" value="Yes"> Yes
-            <input type="radio" name="featured" value="No"> No
+            <input <?php if($featured=="Yes"){echo "checked";}?> type="radio" name="featured" value="Yes"> Yes
+            <input  <?php if($featured=="No"){echo "checked";}?> type="radio" name="featured" value="No"> No
           </td>
         </tr>
         <tr>
           <td>Active: </td>
           <td>
-            <input type="radio" name="active" value="Yes">Yes
-            <input type="radio" name="active" value="No">No
+            <input <?php if($active=="Yes"){echo "checked";}?> type="radio" name="active" value="Yes">Yes
+            <input <?php if($active=="No"){echo "checked";}?> type="radio" name="active" value="No">No
           </td>
         </tr>
         <tr>
