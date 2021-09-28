@@ -122,14 +122,14 @@ if (isset($_POST['submit'])) {
     $image_name = "";
   }
   // Create sql
-  $sql="UPDATE tbl_category SET title='$title',featured='$featured',active='$active',image_name='$image_name' WHERE id='$id' ";
-  $res=mysqli_query($conn,$sql);
+  $sql1="UPDATE tbl_category SET title='$title',featured='$featured',active='$active',image_name='$image_name' WHERE id='$id' ";
+  $res=mysqli_query($conn,$sql1);
    if($res==True){
-    $_SESSION['update'] = "Update Category Succesfully";
+    $_SESSION['update'] = " <div class='succes-error'> Update Category Succesfully";
     header("location:" . SITEURL . 'admin/manage-category.php');
    }
    else{
-    $_SESSION['update'] = "Failed to Category Admin";
+    $_SESSION['update'] = "<div class='text-error'> Failed to Category Admin";
     header("location:" . SITEURL . 'admin/category-admin.php');
    }
 }
