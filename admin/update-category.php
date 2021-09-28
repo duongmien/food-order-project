@@ -55,15 +55,23 @@
         <tr>
           <td>Featured: </td>
           <td>
-            <input <?php if($featured=="Yes"){echo "checked";}?> type="radio" name="featured" value="Yes"> Yes
-            <input <?php if($featured=="No"){echo "checked";}?> type="radio" name="featured" value="No"> No
+            <input <?php if ($featured == "Yes") {
+                      echo "checked";
+                    } ?> type="radio" name="featured" value="Yes"> Yes
+            <input <?php if ($featured == "No") {
+                      echo "checked";
+                    } ?> type="radio" name="featured" value="No"> No
           </td>
         </tr>
         <tr>
           <td>Active: </td>
           <td>
-            <input <?php if($active=="Yes"){echo "checked";}?> type="radio" name="active" value="Yes">Yes
-            <input <?php if($active=="No"){echo "checked";}?> type="radio" name="active" value="No">No
+            <input <?php if ($active == "Yes") {
+                      echo "checked";
+                    } ?> type="radio" name="active" value="Yes">Yes
+            <input <?php if ($active == "No") {
+                      echo "checked";
+                    } ?> type="radio" name="active" value="No">No
           </td>
         </tr>
         <tr>
@@ -74,3 +82,25 @@
       </table>
     </form>
     <!-- Form end -->
+  </div>
+</div>
+<?php
+//Check if the submit button is click or not
+if (isset($_POST['submit'])) {
+  $id = $_POST['id'];
+  $title = $_POST['title'];
+  $featured=$_POST['featured'];
+  $active=$_POST['active']
+  
+  $sql = "UPDATE tbl_admin SET fullname='$full_name', username='$username' WHERE id=$id ";
+  $res = mysqli_query($conn, $sql);
+  if ($res == True) {
+    $_SESSION['update'] = "Update Admin Succesfully";
+    header("location:" . SITEURL . 'admin/manage-admin.php');
+  } else {
+    $_SESSION['update'] = "Failed to Update Admin";
+    header("location:" . SITEURL . 'admin/manage-admin.php');
+  }
+}
+?>
+<?php include('./partials/footer.php') ?>
