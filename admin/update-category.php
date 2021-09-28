@@ -86,71 +86,67 @@
 </div>
 <?php
 //Check if the submit button is click or not
-if (isset($_GET['submit'])) {
+if (isset($_POST['submit'])) {
   $id = $_GET['id'];
   $title = $_POST['title'];
   $featured = $_POST['featured'];
   $active = $_POST['active'];
-  echo $id;
-  echo $title;
-  echo $featured;
-  echo $active;
-  // // Check the uimage is select or no
-  // if (isset($_FILES['image']['name'])) {
-  //   // Upload the Image
-  //   // To upload the image we need image name, source path and destination_path
-  //   $image_name = $_FILES['image']['name'];
-  //   //Auto rename
-  //   //get tje extension of our imager ex png, jpg
-  //   if ($image_name != "") {
-  //     $ext = explode('.', $image_name);
-  //     $ext = end($ext);
-  //     // Rename the Image
-  //     $image_name = "Food_category_" . rand(000, 999) . '.' . $ext;
-  //     echo $image_name;
-  //     $source_path = $_FILES['image']['tmp_name'];
-  //     $destination_path = "../images/category/" . $image_name;
-  //     // Upload image
-  //     $upload = move_uploaded_file($source_path, $destination_path);
-  //     // Check image upload or not
-  //     // If image is not upload then we will stop process and redirect error message
-  //     if ($upload == false) {
-  //       // Set message
-  //       $_SESSION['upload'] = " <div class='text-error'> Failed to Upload Image Category</div>";
-  //       // redirect error message
-  //       header('location:' . SITEURL . 'admin/manage-category.php');
-  //       // Stop procces
-  //       die();
-  //     }
+  // Check the uimage is select or no
+  if (isset($_FILES['image']['name'])) {
+    // Upload the Image
+    // To upload the image we need image name, source path and destination_path
+    $image_name = $_FILES['image']['name'];
+    //Auto rename
+    //get tje extension of our imager ex png, jpg
+    if ($image_name != "") {
+      $ext = explode('.', $image_name);
+      $ext = end($ext);
+      // Rename the Image
+      $image_name = "Food_category_" . rand(000, 999) . '.' . $ext;
+      echo $image_name;
+      $source_path = $_FILES['image']['tmp_name'];
+      $destination_path = "../images/category/" . $image_name;
+      // Upload image
+      $upload = move_uploaded_file($source_path, $destination_path);
+      // Check image upload or not
+      // If image is not upload then we will stop process and redirect error message
+      if ($upload == false) {
+        // Set message
+        $_SESSION['upload'] = " <div class='text-error'> Failed to Upload Image Category</div>";
+        // redirect error message
+        header('location:' . SITEURL . 'admin/manage-category.php');
+        // Stop procces
+        die();
+      }
 
-  //     // Remove current image
-  //     if ($current_image != "") {
-  //       $remove_path = "../images/category/" . $current_image;
-  //       $remove = unlink($remove_path);
-  //       // Check image is removed or not
-  //       if ($remove == false) {
-  //         $_SESSION['failed-remove'] = "<div class='text-error'> Failed to Remove Image Category</div>";
-  //         header('location:' . SITEURL . 'admin/manage-category.php');
-  //         die();
-  //       }
-  //     }
-  //   } else {
-  //     $image_name = $current_image;
-  //   }
-  // } else {
-  //   // Don't upload
-  //   $image_name = $current_image;
-  // }
-  // // Create sql
-  // $sql1 = "UPDATE tbl_category SET title='$title',featured='$featured',active='$active',image_name='$image_name' WHERE id=$id";
-  // $res = mysqli_query($conn, $sql1);
-  // if ($res == True) {
-  //   $_SESSION['update'] = " <div class='text-succes'> Update Category Succesfully </div>";
-  //   header("location:" . SITEURL . 'admin/manage-category.php');
-  // } else {
-  //   $_SESSION['update'] = "<div class='text-error'> Failed to Update Category  </div>";
-  //   header("location:" . SITEURL . 'admin/category-admin.php');
-  // }
+      // Remove current image
+      if ($current_image != "") {
+        $remove_path = "../images/category/" . $current_image;
+        $remove = unlink($remove_path);
+        // Check image is removed or not
+        if ($remove == false) {
+          $_SESSION['failed-remove'] = "<div class='text-error'> Failed to Remove Image Category</div>";
+          header('location:' . SITEURL . 'admin/manage-category.php');
+          die();
+        }
+      }
+    } else {
+      $image_name = $current_image;
+    }
+  } else {
+    // Don't upload
+    $image_name = $current_image;
+  }
+  // Create sql
+  $sql1 = "UPDATE tbl_category SET title='$title',featured='$featured',active='$active',image_name='$image_name' WHERE id=$id";
+  $res = mysqli_query($conn, $sql1);
+  if ($res == True) {
+    $_SESSION['update'] = " <div class='text-succes'> Update Category Succesfully </div>";
+    header("location:" . SITEURL . 'admin/manage-category.php');
+  } else {
+    $_SESSION['update'] = "<div class='text-error'> Failed to Update Category  </div>";
+    header("location:" . SITEURL . 'admin/category-admin.php');
+  }
 }
 ?>
 <?php include('./partials/footer.php') ?>
