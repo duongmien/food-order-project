@@ -20,6 +20,10 @@
       echo $_SESSION['upload'];
       unset($_SESSION['upload']);
     }
+    if(isset($_SESSION['failed-remove'])){
+      echo $_SESSION['failed-remove'];
+      unset ($_SESSION['failed-remove']);
+    }
     ?>
     <br> <br>
     <a href="add-category.php" class="btn-primary">Add Category</a>
