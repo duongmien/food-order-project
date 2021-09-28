@@ -16,6 +16,10 @@
       echo $_SESSION['update'];
       unset($_SESSION['update']);
     }
+    if (isset($_SESSION['upload'])) {
+      echo $_SESSION['upload'];
+      unset($_SESSION['upload']);
+    }
     ?>
     <br> <br>
     <a href="add-category.php" class="btn-primary">Add Category</a>

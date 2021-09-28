@@ -98,28 +98,33 @@ if (isset($_POST['submit'])) {
     $image_name = $_FILES['image']['name'];
     //Auto rename
     //get tje extension of our imager ex png, jpg
-    $ext = explode('.', $image_name);
-    $ext = end($ext);
-    // Rename the Image
-    $image_name ="Food_category_" . rand(000, 999) . '.' . $ext;
-    echo $image_name;
-    $source_path = $_FILES['image']['tmp_name'];
-    $destination_path = "../images/category/" . $image_name;
-    // Upload image
-    $upload = move_uploaded_file($source_path, $destination_path);
-    // Check image upload or not
-    // If image is not upload then we will stop process and redirect error message
-    if ($upload == false) {
-      // Set message
-      $_SESSION['upload'] = " <div class='text-error'> Failed to Upload Image Category</div>";
-      // redirect error message
-      header('location:' . SITEURL . 'admin/add-category.php');
-      // Stop procces
-      die();
+    if($image_name !=""){
+      $ext = explode('.', $image_name);
+      $ext = end($ext);
+      // Rename the Image
+      $image_name ="Food_category_" . rand(000, 999) . '.' . $ext;
+      echo $image_name;
+      $source_path = $_FILES['image']['tmp_name'];
+      $destination_path = "../images/category/" . $image_name;
+      // Upload image
+      $upload = move_uploaded_file($source_path, $destination_path);
+      // Check image upload or not
+      // If image is not upload then we will stop process and redirect error message
+      if ($upload == false) {
+        // Set message
+        $_SESSION['upload'] = " <div class='text-error'> Failed to Upload Image Category</div>";
+        // redirect error message
+        header('location:' . SITEURL . 'admin/add-category.php');
+        // Stop procces
+        die();
+      }
+    }
+    else{
+
     }
   } else {
     // Don't upload
-    $image_name = "";
+    $image_name = $current_image;
   }
   // Create sql
   $sql1="UPDATE tbl_category SET title='$title',featured='$featured',active='$active',image_name='$image_name' WHERE id='$id' ";
